@@ -1,3 +1,20 @@
+<?php
+ob_start();
+
+include_once "../includes/db.php";
+include_once "functions.php";
+
+session_start();
+
+if (!isset($_SESSION['user_role'])) {
+    redirect("../index.php");
+} else {
+    if ($_SESSION['user_role'] != 'admin') {
+        redirect("../index.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

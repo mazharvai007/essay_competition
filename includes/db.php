@@ -13,8 +13,7 @@ $db["db_user"] = "root";
 $db["db_pass"] = "91221";
 $db["db_name"] = "essay_competition";
 
-foreach ($db as $key => $value)
-{
+foreach ($db as $key => $value) {
     define(strtoupper($key), $value);
 }
 
@@ -24,9 +23,6 @@ $utf_query = "SET NAMES utf8";
 
 mysqli_query($connect, $utf_query);
 
-if (!$connect)
-{
+if (!$connect) {
     die("Connection Filed: " . $connect->connect_error);
 }
-
-echo "Connected successfully";

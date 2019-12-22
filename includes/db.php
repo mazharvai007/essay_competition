@@ -26,5 +26,7 @@ mysqli_query($connect, $utf_query);
 
 if (!$connect)
 {
-    echo "Database connection is failed!";
+    die("Connection Filed: " . $connect->connect_error);
 }
+
+echo "Connected successfully";

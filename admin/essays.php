@@ -3,7 +3,7 @@ include_once "includes/admin_header.php";
 include_once "includes/admin_sidebar.php";
 include_once "includes/admin_topbar.php";
 
-if (!isAdmin($_SESSION['username'])) {
+if (!isAdmin()) {
     redirect("index.php");
 }
 ?>

@@ -1,44 +1,7 @@
 <?php
-
-include "includes/db.php";
-include "admin/functions.php";
-
-if (isset($_POST['submit'])) {
-    $fullName = $_POST['name'];
-    $fatherName = $_POST['fatherName'];
-    $dob = $_POST['dob'];
-    $address = $_POST['address'];
-    $nameOfInstitute = $_POST['nameOfInstitute'];
-    $groupClass = $_POST['groupClass'];
-    $className = $_POST['className'];
-    $teacherName = $_POST['teacherName'];
-    $essayType = $_POST['essayType'];
-    $writeEssay = $_POST['writeEssay'];
-    $contactNo = $_POST['contactNo'];
-
-    $query = "INSERT INTO essays(full_name, father_name, dob, address, institute_name, class_group, class_name, teacher_name, essay_type, write_essay, contact_no) VALUES('{$fullName}', '{$fatherName}', '{$dob}', '{$address}', '{$nameOfInstitute}', '{$groupClass}', '{$className}', '{$teacherName}', '{$essayType}', '{$writeEssay}', '{$contactNo}')";
-    $createEssay = mysqli_query($connect, $query);
-
-    confirmQuery($createEssay);
-
-    echo "<p class='bg-success'>Essay submitted successfully!</p>";
-}
+include "includes/header.php";
 
 ?>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-
-    <title>Essay Competition</title>
-</head>
-<body>
 
 <section class="essay-form">
     <div class="container">
@@ -49,41 +12,13 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="row">
             <div class="col-md-6">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="fatherName">Father's Name</label>
-                        <input type="text" class="form-control" id="fatherName" name="fatherName">
-                    </div>
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="text" class="form-control" id="dob" name="dob">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea class="form-control" name="address" id="address" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="nameOfInstitute">Name of the Institute</label>
-                        <input type="text" class="form-control" id="nameOfInstitute" name="nameOfInstitute">
-                    </div>
+                <form action="final_form.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="groupClass">Group</label>
                         <select class="form-control" id="groupClass" name="groupClass">
-                            <option>Ka</option>
-                            <option>Kha</option>
+                            <option>Ka: Be social in social media</option>
+                            <option>Kha: Digital Bangladesh in the pursuit of prosperity</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="className">Class</label>
-                        <input type="text" class="form-control" id="className" name="className">
-                    </div>
-                    <div class="form-group">
-                        <label for="teacherName">Teacher's Name</label>
-                        <input type="text" class="form-control" id="teacherName" name="teacherName">
                     </div>
                     <div class="form-group">
                         <label for="essayType">Essay Type</label>
@@ -96,20 +31,13 @@ if (isset($_POST['submit'])) {
                         <label for="writeEssay">Write Essay</label>
                         <textarea class="form-control" name="writeEssay" id="writeEssay" cols="30" rows="10"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="contactNo">Contact No.</label>
-                        <input type="text" class="form-control" id="contactNo" name="contactNo">
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="next">Next</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery.js" crossorigin="anonymous"></script>
-<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+include "includes/footer.php";
+?>

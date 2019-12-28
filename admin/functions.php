@@ -97,3 +97,10 @@ function checkIfUserLoggedInAndRedirectAdmin($redirectLocation = null)
     }
 }
 
+/* before going online of a project need to escape all data that files where has database. I used the function in the add_post.php file*/
+function escape($string) {
+    global $connect;
+
+    return mysqli_real_escape_string($connect, trim(strip_tags($string)));
+}
+

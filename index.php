@@ -40,21 +40,21 @@ if (isset($_POST['submit'])) {
         $error = "Contact cannot be empty!";
         redirect("index.php");
     } else {
-        $fullName = $_POST['name'];
-        $fatherName = $_POST['fatherName'];
-        $dob = $_POST['dob'];
+        $fullName = escape($_POST['name']);
+        $fatherName = escape($_POST['fatherName']);
+        $dob = escape($_POST['dob']);
         $dob_find = explode('/', $dob);
         if (checkdate($dob_find[0], $dob_find[1], $dob_find[2])) {
             $dob = implode("/", $dob_find);
         }
-        $full_address = $_POST['full_address'];
-        $nameOfInstitute = $_POST['nameOfInstitute'];
-        $groupClass = $_POST['groupClass'];
-        $className = $_POST['className'];
-        $teacherName = $_POST['teacherName'];
-        $essayType = $_POST['essayType'];
-        $writeEssay = $_POST['writeEssay'];
-        $contactNo = $_POST['contactNo'];
+        $full_address = escape($_POST['full_address']);
+        $nameOfInstitute = escape($_POST['nameOfInstitute']);
+        $groupClass = escape($_POST['groupClass']);
+        $className = escape($_POST['className']);
+        $teacherName = escape($_POST['teacherName']);
+        $essayType = escape($_POST['essayType']);
+        $writeEssay = escape($_POST['writeEssay']);
+        $contactNo = escape($_POST['contactNo']);
 
         $query = "INSERT INTO essays(full_name, father_name, dob, full_address, institute_name, class_group, class_name, teacher_name, essay_type, write_essay, contact_no) VALUES('{$fullName}', '{$fatherName}', '{$dob}', '{$full_address}', '{$nameOfInstitute}', '{$groupClass}', '{$className}', '{$teacherName}', '{$essayType}', '{$writeEssay}', '{$contactNo}')";
         $createEssay = mysqli_query($connect, $query);

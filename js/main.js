@@ -61,5 +61,29 @@ $(document).ready(function ($) {
             }, duration: 600
         });
     });
+    //
+    // $(".submit").click(function (e) {
+    //     e.preventDefault();
+    //
+    //     current_fs = $(this).parent();
+    //     next_fs = $(this).parent().next();
+    //
+    //     // Show next fieldset
+    //     next_fs.show();
+    //
+    //     // Hide current fieldset
+    //     current_fs.animate({opacity: 0}, {
+    //         step: function (now) {
+    //             opacity = 1 - now;
+    //             current_fs.css({
+    //                 "display": "none",
+    //                 "position": "relative"
+    //             });
+    //             next_fs.css({
+    //                 "opacity": opacity
+    //             });
+    //         }, duration: 600
+    //     });
+    // });
 
 });

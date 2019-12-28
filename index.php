@@ -46,7 +46,6 @@ if (isset($_POST['submit'])) {
         $dob_find = explode('/', $dob);
         if (checkdate($dob_find[0], $dob_find[1], $dob_find[2])) {
             $dob = implode("/", $dob_find);
-            var_dump($dob);
         }
         $full_address = $_POST['full_address'];
         $nameOfInstitute = $_POST['nameOfInstitute'];
@@ -74,11 +73,23 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="index.php" method="post" enctype="multipart/form-data" id="multiForm" novalidate>
+                <form action="" method="post" enctype="multipart/form-data" id="multiForm" novalidate>
                     <fieldset>
                         <h1 class="fs-title">Submit your Essay</h1>
                         <p class="fs-error"><?php echo $error; ?></p>
-                        <p class="fs-success"><?php echo $success; ?></p>
+                        <?php if ($success) : ?>
+                            <p class="fs-success"><?php echo $success; ?></p>
+                            <h4>Your information is:</h4>
+                            <p><strong>Name:</strong> <?php echo $fullName; ?></p>
+                            <p><strong>Father's Name:</strong> <?php echo $fatherName; ?></p>
+                            <p><strong>Date of Birth:</strong> <?php echo $dob; ?></p>
+                            <p><strong>Address:</strong> <?php echo $full_address; ?></p>
+                            <p><strong>Name of Institute:</strong> <?php echo $nameOfInstitute; ?></p>
+                            <p><strong>Group:</strong> <?php echo $groupClass; ?></p>
+                            <p><strong>Class:</strong> <?php echo $className; ?></p>
+                            <p><strong>Teachr's Name:</strong> <?php echo $teacherName; ?></p>
+                            <p><strong>Contact No:</strong> <?php echo $contactNo; ?></p>
+                        <?php endif; ?>
                         <div class="form-group">
                             <label for="groupClass">Group</label>
                             <select class="form-control" id="groupClass" name="groupClass" required>
@@ -170,6 +181,7 @@ if (isset($_POST['submit'])) {
                         <button type="submit" class="btn btn-primary previous action-button-previous" name="previous">Previous</button>
                         <button type="submit" class="btn btn-primary action-button" name="submit">Submit</button>
                     </fieldset>
+
                 </form>
             </div>
         </div>

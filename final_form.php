@@ -10,6 +10,8 @@ if (isset($_POST['submit'])) {
     $groupClass = $_POST['groupClass'];
     $className = $_POST['className'];
     $teacherName = $_POST['teacherName'];
+    $essayType = $_POST['essayType'];
+    $writeEssay = $_POST['writeEssay'];
     $contactNo = $_POST['contactNo'];
 
     $query = "INSERT INTO essays(full_name, father_name, dob, address, institute_name, class_group, class_name, teacher_name, essay_type, write_essay, contact_no) VALUES('{$fullName}', '{$fatherName}', '{$dob}', '{$address}', '{$nameOfInstitute}', '{$groupClass}', '{$className}', '{$teacherName}', '{$essayType}', '{$writeEssay}', '{$contactNo}')";

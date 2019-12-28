@@ -21,7 +21,7 @@
         <tbody>
             <?php
             // Get all data from essays table
-            $getEssaysQuery = "SELECT id, full_name, father_name, dob, address, institute_name, class_group, class_name, teacher_name, essay_type, write_essay, contact_no FROM essays ORDER BY essays.id DESC";
+            $getEssaysQuery = "SELECT id, full_name, father_name, dob, full_address, institute_name, class_group, class_name, teacher_name, essay_type, write_essay, contact_no FROM essays ORDER BY essays.id DESC";
 
             // Connect DB
             $getEssays = mysqli_query($connect, $getEssaysQuery);
@@ -32,7 +32,7 @@
                 $full_name = $row['full_name'];
                 $father_name = $row['father_name'];
                 $dob = $row['dob'];
-                $address = $row['address'];
+                $address = $row['full_address'];
                 $institute_name = $row['institute_name'];
                 $class_group = $row['class_group'];
                 $class_name = $row['class_name'];
